@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private Collider2D coll;
-    
+    private CircleCollider2D coll2;
+
+
 
     private enum State {idle, running, jumping, falling, hurt};
     private State state = State.idle;
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
+        coll2 = GetComponent<CircleCollider2D>();
     }
     private void Update()
     {
@@ -59,6 +62,7 @@ public class PlayerController : MonoBehaviour
             if (state == State.falling)
             {
                 points += 5;
+                pointsText.text = points.ToString();
                 enemy.Killed();
                 Jump();
             }
@@ -97,7 +101,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jump
-        if (Input.GetButtonDown("Jump") && coll.IsTouchingLayers(ground))
+        if (Input.GetButtonDown("Jump") && coll2.IsTouchingLayers(ground))
         {
             Jump();
         }
@@ -118,7 +122,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         else if(state == State.falling){
-            if (coll.IsTouchingLayers(ground))
+            if (coll2.IsTouchingLayers(ground))
             {
                 state = State.idle;
             }
