@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 064bd06b7aa89be468c677ab6e43eb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  makegem: {fileID: 8329638478016506752, guid: 7d5982cb42facf1408e3259e51a5b8bd, type: 3}
   leftCap: -15.79
   rightCap: 3.73
   topCap: 0
