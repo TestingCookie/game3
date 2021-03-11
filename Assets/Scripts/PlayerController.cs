@@ -61,8 +61,11 @@ public class PlayerController : MonoBehaviour
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             if (state == State.falling)
             {
-                points += 5;
-                pointsText.text = points.ToString();
+                if (pointsText != null)
+                {
+                    points += 5;
+                    pointsText.text = points.ToString();
+                }
                 enemy.Killed();
                 Jump();
             }

@@ -31,6 +31,6 @@ public class Enemy : MonoBehaviour
     private void Death()
     {
         Destroy(this.gameObject);
-        Instantiate(makegem, new Vector2(0, 0), Quaternion.identity);
+        //Instantiate(makegem, new Vector2(0, 0), Quaternion.identity);
     }
 }
