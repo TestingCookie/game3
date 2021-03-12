@@ -49,8 +49,11 @@ public class PlayerController : MonoBehaviour
         {
             gemCollect.Play();
             Destroy(collision.gameObject);
-            points += 1;
-            pointsText.text = points.ToString();
+            if(pointsText != null)
+                {
+                points += 1;
+                pointsText.text = points.ToString();
+            }
         }
     }
 
