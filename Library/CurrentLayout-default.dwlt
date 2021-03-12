@@ -338,19 +338,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Coins Sfx
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Coins Sfx
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\unril\bonk\tu\game3
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 92}
-    m_SelectedIDs: ec410000
-    m_LastClickedID: 16876
+    m_SelectedIDs: e4410000
+    m_LastClickedID: 16868
     m_ExpandedIDs: 00000000bc410000be410000c0410000c2410000c4410000c6410000c8410000ca410000cc410000ce410000d041000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -502,9 +502,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 922d0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 62fbffff
+      m_SelectedIDs: 54fbffff
+      m_LastClickedID: -1196
+      m_ExpandedIDs: 1cfbffff62fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -564,9 +564,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 48.820145, y: 12.353358, z: -6.5664062}
+    m_Target: {x: 16.204132, y: 3.3926446, z: -14.897615}
     speed: 2
-    m_Value: {x: 48.820145, y: 12.353358, z: -6.5664062}
+    m_Value: {x: 16.665508, y: 3.4475846, z: -14.873087}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -616,9 +616,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 29.260777
+    m_Target: 6.5067363
     speed: 2
-    m_Value: 29.260777
+    m_Value: 6.8133364
   m_Ortho:
     m_Target: 1
     speed: 2
