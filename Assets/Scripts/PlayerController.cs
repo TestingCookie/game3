@@ -127,6 +127,10 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             //anim.SetBool("running", true);
         }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
 
         //Jump
         if (Input.GetButtonDown("Jump") && coll2.IsTouchingLayers(ground))
