@@ -151,8 +151,8 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 256
-  speed: 5
-  jumpForce: 10
+  speed: 7
+  jumpForce: 12
   points: 0
   pointsText: {fileID: 0}
   hurtForce: 10
