@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 state = State.hurt;
+                StartCoroutine(HurtedColor());
                 if (other.gameObject.transform.position.x > transform.position.x) //enemy is to my right
                 {
                     rb.velocity = new Vector2(-hurtForce, rb.velocity.y);
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
                 {
                     rb.velocity = new Vector2(hurtForce, rb.velocity.y);
                 }
+                
             }
         }
     }
@@ -135,6 +137,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (state == State.hurt)
         {
+            GetComponent<SpriteRenderer>().color = Color.red;
             if (Mathf.Abs(rb.velocity.x) < .1f)
             {
                 state = State.idle;
@@ -154,5 +157,12 @@ public class PlayerController : MonoBehaviour
     private void Footsteps()
     {
         footstep.Play();
+    }
+
+    private IEnumerator HurtedColor()
+    {
+       GetComponent<SpriteRenderer>().color = Color.red;
+       yield return new WaitForSeconds(1);
+       GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
