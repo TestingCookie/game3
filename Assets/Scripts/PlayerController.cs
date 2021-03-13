@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 12f;
     [SerializeField] private int points = 0;
     [SerializeField] private Text pointsText;
+    private int health = 5;
+    [SerializeField] private Text healthAmount;
     [SerializeField] private float hurtForce = 10f;
     [SerializeField] private AudioSource footstep;
     [SerializeField] private AudioSource gemCollect;
@@ -75,6 +78,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 state = State.hurt;
+                healthHandler();
+                
                 StartCoroutine(HurtedColor());
                 if (other.gameObject.transform.position.x > transform.position.x) //enemy is to my right
                 {
@@ -84,8 +89,23 @@ public class PlayerController : MonoBehaviour
                 {
                     rb.velocity = new Vector2(hurtForce, rb.velocity.y);
                 }
-                
+
             }
+        }
+    }
+
+    private void healthHandler()
+    {
+        health -= 1;
+
+        if (healthAmount != null)
+        {
+            
+            healthAmount.text = health.ToString();
+        }
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
