@@ -7,19 +7,19 @@ public class Eagle : Enemy
     [SerializeField] private float leftCap;
     [SerializeField] private float rightCap;
     [SerializeField] private float topCap;
-    [SerializeField] private float bottomCap;
+    [SerializeField] protected float bottomCap;
 
     //private float flyUp = 7f;
-    private float flyForward = 7f;
+    protected float flyForward = 7f;
 
     [SerializeField] private bool factingLeft = true;
 
-    private Collider2D coll;
+    private CircleCollider2D coll;
 
     protected override void Start()
     {
         base.Start();
-        coll = GetComponent<Collider2D>();
+        coll = GetComponent<CircleCollider2D>();
 
     }
 
