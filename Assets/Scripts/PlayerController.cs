@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    private enum State {idle, running, jumping, falling, hurt};
+    private enum State {idle, running, jumping, falling, hurt, climb};
     private State state = State.idle;
 
     [SerializeField] private LayerMask ground;
@@ -58,14 +58,19 @@ public class PlayerController : MonoBehaviour
                 pointsText.text = points.ToString();
             }
         }
+
+        if(collision.name == "SpecialEagle2")
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Enemy") 
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            if (state == State.falling)
+            if (state == State.falling && other.gameObject.name != "SpecialEagle2")
             {
                 if (pointsText != null)
                 {
@@ -118,14 +123,12 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(-speed, rb.velocity.y);
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
-            //anim.SetBool("running", true);
         }
         else if (hDirection > 0)
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
             transform.localScale = new Vector2(1, 1);
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            //anim.SetBool("running", true);
         }
         else
         {
@@ -167,6 +170,10 @@ public class PlayerController : MonoBehaviour
                 state = State.idle;
             }
         }
+        //else if (coll.IsTouchingLayers(ground))
+        //{
+        //    state = State.climb;
+        //
         else if(Mathf.Abs(rb.velocity.x) > 2f)
         {
             //Moving
