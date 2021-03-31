@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/testowa.unity
-    guid: b97eb43fc11d6bc42b41f84856dc8bb0
+    path: Assets/Scenes/menu.unity
+    guid: e9d721eb59aa18246a2b5caec3bae595
   - enabled: 1
     path: Assets/Scenes/2mapa.unity
     guid: 64bb111c78505cb4f995486e1abe51f7
+  - enabled: 1
+    path: Assets/Scenes/1las.unity
+    guid: 64f864730262855459752f06450e6a09
+  - enabled: 1
+    path: Assets/Scenes/testowa.unity
+    guid: b97eb43fc11d6bc42b41f84856dc8bb0
   m_configObjects: {}
