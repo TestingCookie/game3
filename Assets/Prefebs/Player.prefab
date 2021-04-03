@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &8810041093906601669
 BoxCollider2D:
@@ -154,6 +154,7 @@ MonoBehaviour:
   jumpForce: 10
   points: 0
   pointsText: {fileID: 0}
+  healthAmount: {fileID: 0}
   hurtForce: 10
   footstep: {fileID: 8810041093906601665}
   gemCollect: {fileID: 8810041093906601666}

@@ -15,7 +15,7 @@ public class StartGame : MonoBehaviour
     public void ExitGameButton()
     {
         Application.Quit();
-        Debug.Log("Game is exiting");
     }
+
 
 }

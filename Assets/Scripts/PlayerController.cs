@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
         coll2 = GetComponent<CircleCollider2D>();
+
+        Time.timeScale = 1;
     }
     private void Update()
     {
