@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private LayerMask ground;
     [SerializeField] private float speed = 7f;
-    [SerializeField] private float jumpForce = 12f;
+    [SerializeField] public float jumpForce = 12f;
     [SerializeField] private int points = 0;
     [SerializeField] private Text pointsText;
     private int health = 5;
@@ -185,6 +185,11 @@ public class PlayerController : MonoBehaviour
         {
             state = State.idle;
         }
+    }
+
+    public void AddJumpForce(int setJumpForce)
+    {
+        jumpForce = setJumpForce;
     }
 
     private void Footsteps()
