@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float hurtForce = 10f;
     [SerializeField] private AudioSource footstep;
     [SerializeField] private AudioSource gemCollect;
+    private bool freezeMe = false;
 
 
     private void Start()
@@ -63,7 +64,8 @@ public class PlayerController : MonoBehaviour
 
         if(collision.name == "SpecialEagle2")
         {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            freezeMe = true;
         }
     }
 
@@ -121,12 +123,12 @@ public class PlayerController : MonoBehaviour
         float hDirection = Input.GetAxis("Horizontal");
 
         //Moving L/R
-        if (hDirection < 0)
+        if (hDirection < 0 && freezeMe == false)
         {
             rb.velocity = new Vector2(-speed, rb.velocity.y);
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
-        else if (hDirection > 0)
+        else if (hDirection > 0 && freezeMe == false)
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
             transform.localScale = new Vector2(1, 1);
@@ -138,7 +140,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jump
-        if (Input.GetButtonDown("Jump") && coll2.IsTouchingLayers(ground))
+        if (Input.GetButtonDown("Jump") && coll2.IsTouchingLayers(ground) && freezeMe == false)
         {
             Jump();
         }
