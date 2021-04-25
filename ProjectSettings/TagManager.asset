@@ -61,3 +61,6 @@ TagManager:
   - name: ItemsFront
     uniqueID: 3078087727
     locked: 0
+  - name: End Game
+    uniqueID: 2093705931
+    locked: 0
