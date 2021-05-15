@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private LayerMask ground;
     [SerializeField] private float speed = 7f;
-    [SerializeField] private float jumpForce = 12f;
+    [SerializeField] public float jumpForce = 12f;
     [SerializeField] private int points = 0;
     [SerializeField] private Text pointsText;
     private int health = 5;
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float hurtForce = 10f;
     [SerializeField] private AudioSource footstep;
     [SerializeField] private AudioSource gemCollect;
+    private bool freezeMe = false;
 
 
     private void Start()
@@ -34,6 +35,8 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
         coll2 = GetComponent<CircleCollider2D>();
+
+        Time.timeScale = 1;
     }
     private void Update()
     {
@@ -61,7 +64,8 @@ public class PlayerController : MonoBehaviour
 
         if(collision.name == "SpecialEagle2")
         {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            freezeMe = true;
         }
     }
 
@@ -119,12 +123,12 @@ public class PlayerController : MonoBehaviour
         float hDirection = Input.GetAxis("Horizontal");
 
         //Moving L/R
-        if (hDirection < 0)
+        if (hDirection < 0 && freezeMe == false)
         {
             rb.velocity = new Vector2(-speed, rb.velocity.y);
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
-        else if (hDirection > 0)
+        else if (hDirection > 0 && freezeMe == false)
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
             transform.localScale = new Vector2(1, 1);
@@ -136,7 +140,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jump
-        if (Input.GetButtonDown("Jump") && coll2.IsTouchingLayers(ground))
+        if (Input.GetButtonDown("Jump") && coll2.IsTouchingLayers(ground) && freezeMe == false)
         {
             Jump();
         }
@@ -183,6 +187,11 @@ public class PlayerController : MonoBehaviour
         {
             state = State.idle;
         }
+    }
+
+    public void AddJumpForce(int setJumpForce)
+    {
+        jumpForce = setJumpForce;
     }
 
     private void Footsteps()
