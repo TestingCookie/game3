@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/testowa.unity
     guid: b97eb43fc11d6bc42b41f84856dc8bb0
+  - enabled: 1
+    path: Assets/Scenes/1tenprawdziwylas.unity
+    guid: 108d15e20c688bf42a4baf894306ab52
   m_configObjects: {}

@@ -53,9 +53,15 @@ TagManager:
   - name: Entities
     uniqueID: 151418571
     locked: 0
-  - name: ItemsFront
-    uniqueID: 3078087727
+  - name: Water
+    uniqueID: 2657326325
     locked: 0
   - name: Foreground
     uniqueID: 825155931
+    locked: 0
+  - name: ItemsFront
+    uniqueID: 3078087727
+    locked: 0
+  - name: End Game
+    uniqueID: 2093705931
     locked: 0
