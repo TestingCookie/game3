@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Collider2D coll;
     private CircleCollider2D coll2;
+    public Tilemap water; 
 
 
 
@@ -66,6 +68,14 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             freezeMe = true;
+        }
+
+        if(collision.tag == "Water")
+        {
+            state = State.hurt;
+            healthHandler();
+
+            StartCoroutine(HurtedColor());
         }
     }
 
