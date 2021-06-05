@@ -8,6 +8,7 @@ TagManager:
   - Collectable
   - Menu
   - Water
+  - Platform
   layers:
   - Default
   - TransparentFX
